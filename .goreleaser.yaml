@@ -1,0 +1,8 @@
+version: 2
+project_name: habit
+before:
+  hooks: [go mod tidy, go vet ./..., go test ./... -count=1 -timeout 30s]
+builds:
+  - {id: habit, main: ., binary: habit, env: [CGO_ENABLED=0], goos: [linux, android, darwin], goarch: [amd64, arm64], ignore: [{goos: android, goarch: amd64}], ldflags: [-s -w -X main.version={{.Version}}], flags: [-trimpath]}
+archives: [{id: binaries, builds: [habit], name_template: "habit-{{ .Os }}-{{ .Arch }}", format: binary}]
+checksum: {name_template: "checksums.txt"}

@@ -18,6 +18,8 @@ habit tui               # j/k nav, c check, q quit
 
 Single file `~/.cache/habit/habit.db` WAL `0700`, survives reboot, no daemon.
 
+![demo](https://raw.githubusercontent.com/Pastalikek65/habit/main/demo.gif)
+
 ## Why
 
 Termux kills GUI habit apps. `habit` keeps streaks in SQLite and shows `🔥` in TUI. No `cron` needed — check when you open terminal.
